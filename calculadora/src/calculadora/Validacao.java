@@ -30,11 +30,17 @@ public class Validacao {
 	protected Boolean isValorCalculado(String comando) {
 		if (isOperacaoRealizada && isNumero && !isOperacao) {
 			this.setIsOperacaoRealizada(true);
-			return this.isOperacaoRealizada;
+			return this.getIsOperacaoRealizada();
 		}
 		return false;
 	}
-	
+	/**
+	 * Verifica se o termo já possui uma vírgula. Caso possua,
+	 * a adição de uma segunda vírgula será ignorada pelo método
+	 * que invocou este método.
+	 * @param termo - o termo a ser verificado
+	 * @return - true, se o termo já possuir uma vírgula; false, caso contrário.
+	 */
 	protected Boolean jaTemVirgula(String termo) {
 		int counter = 0;
 		for (char c : termo.toCharArray()) {
